@@ -79,17 +79,21 @@ function Persona(nombre, telefono, correo, etiqueta) {
         }
       });}
        
+       function etiqueta(){
+        return document.getElementById("inputGroupSelect01fl").value
+      }
 
       function mostrartabla(){
 
         return  document.getElementById("flitrador").value;
     
     }
-    
+
+   
     document.getElementById("btn").addEventListener("click" , function(){
     var todo =  document.getElementById("llenar");
     todo.innerHTML ="";
-    if(mostrartabla()===""){
+    if(mostrartabla()==="" && etiqueta()===""){
     
       ListaContacto.forEach((pers,index)=>{
             todo.innerHTML += `
@@ -110,7 +114,7 @@ function Persona(nombre, telefono, correo, etiqueta) {
     
     }else{
        
-        var filtroo = ListaContacto.filter(perss =>  perss.nombre === mostrartabla());
+        var filtroo = ListaContacto.filter(perss =>  perss.nombre === mostrartabla()  || perss.etiqueta === etiqueta());
         filtroo.forEach((flt) =>{
           const originalIndex = ListaContacto.findIndex(pers => pers.nombre === flt.nombre);
           const filteredIndex = ListaContacto.indexOf(flt);
