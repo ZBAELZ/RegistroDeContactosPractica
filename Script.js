@@ -79,3 +79,61 @@ function Persona(nombre, telefono, correo, etiqueta) {
         }
       });}
        
+
+      function mostrartabla(){
+
+        return  document.getElementById("flitrador").value;
+    
+    }
+    
+    document.getElementById("btn").addEventListener("click" , function(){
+    var todo =  document.getElementById("llenar");
+    todo.innerHTML ="";
+    if(mostrartabla()===""){
+    
+      ListaContacto.forEach((pers,index)=>{
+            todo.innerHTML += `
+         <tr>
+                    <td>${pers.nombre}</td>
+                    <td>${pers.telefono}</td>
+                    <td>${pers.correo}</td>
+                    <td>${pers.etiqueta}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                            <button onclick="Eliminar(${index})" id="Eliminar" type="button" class="btn btn-danger">Eliminar</button >
+                            <button onclick="alertasss(${index})" id="Editar" type="button" class="btn btn-warning">Editar</button>
+                        </div>
+                    </td>
+                </tr>
+                `;
+        } )
+    
+    }else{
+       
+        var filtroo = ListaContacto.filter(perss =>  perss.nombre === mostrartabla());
+        filtroo.forEach((flt) =>{
+          const originalIndex = ListaContacto.findIndex(pers => pers.nombre === flt.nombre);
+          const filteredIndex = ListaContacto.indexOf(flt);
+    todo.innerHTML += `
+         <tr>
+                    <td>${flt.nombre}</td>
+                    <td>${flt.telefono}</td>
+                    <td>${flt.correo}</td>
+                    <td>${flt.etiqueta}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                            <button onclick="Eliminar(${filteredIndex})" id="Eliminar" type="button" class="btn btn-danger">Eliminar</button >
+                            <button onclick="alertasss(${originalIndex})" id="Editar" type="button" class="btn btn-warning">Editar</button>
+                        </div>
+                    </td>
+                </tr>
+                `;
+    
+        })
+    
+    
+        
+    }})
+    
+    
+    
