@@ -39,5 +39,9 @@ function Persona(nombre, telefono, correo, etiqueta) {
             });
            
         }
-
-       
+        function Eliminar(index){
+            ListaContacto.splice(index, 1);
+            mostrarLista();
+        }
+  
+      
