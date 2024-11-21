@@ -44,4 +44,38 @@ function Persona(nombre, telefono, correo, etiqueta) {
             mostrarLista();
         }
   
-      
+        function Editar(index){
+  
+            ListaContacto.splice(index, 1, { nombre:document.getElementById("nombreEd").value, telefono:document.getElementById("telefonoed").value ,correo: document.getElementById("correoed").value , etiqueta:document.getElementById("inputGroupSelect01ed").value  });
+           mostrarLista();
+       }
+  
+       function alertasss(id){
+       Swal.fire({
+        title: 'Ingrese sus datos',
+        html: `
+            <input id="nombreEd" class="swal2-input" placeholder="Nombre">
+            <input id="telefonoed" class="swal2-input" placeholder="Telefono">
+            <input id="correoed" class="swal2-input" placeholder="Correo">
+            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupSelect01">Etiqueta</label>
+                                <select class="form-select" id="inputGroupSelect01ed">
+                                    <option value="Familia">Familia</option>
+                                    <option value="Trabajo">Trabajo</option>
+                                </select>
+                            </div>
+        `,
+        title: "Quieres Realizar Cambios",
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: "Guardar",
+        denyButtonText: "Cancelar"
+      }).then((result) => {
+        if (result.isConfirmed) {
+            Editar(id);
+          Swal.fire("Saved!", "", "success");
+        } else if (result.isDenied) {
+          Swal.fire("Changes are not saved", "", "info");
+        }
+      });}
+       
