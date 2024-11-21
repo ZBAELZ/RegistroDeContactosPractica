@@ -35,31 +35,30 @@
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="inputGroup-sizing-default">Nnombres
                                         Completos</span>
-                                    <input type="text" class="form-control" aria-label="Sizing example input"
+                                    <input id="Nombre" type="text" class="form-control" aria-label="Sizing example input"
                                         aria-describedby="inputGroup-sizing-default">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="inputGroup-sizing-default">Numero De
                                         Telefono</span>
-                                    <input type="text" class="form-control" aria-label="Sizing example input"
+                                    <input id="Telefono" type="text" class="form-control" aria-label="Sizing example input"
                                         aria-describedby="inputGroup-sizing-default">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="inputGroup-sizing-default">Correo</span>
-                                    <input type="text" class="form-control" aria-label="Sizing example input"
+                                    <input id="Correo" type="text" class="form-control" aria-label="Sizing example input"
                                         aria-describedby="inputGroup-sizing-default">
                                 </div>
                             </div>
                             <div class="input-group mb-3">
                                 <label class="input-group-text" for="inputGroupSelect01">Etiqueta</label>
                                 <select class="form-select" id="inputGroupSelect01">
-                                    <option selected>Choose...</option>
-                                    <option value="1">Familia</option>
-                                    <option value="2">Trabajo</option>
+                                    <option value="Familia">Familia</option>
+                                    <option value="Trabajo">Trabajo</option>
                                 </select>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-primary">GUARDAR</button>
+                        <button type="button" onclick="GuardarPersona()" class="btn btn-primary">GUARDAR</button>
                     </div>
 
                 </div>
@@ -81,6 +80,7 @@
                                     <th>TELEFONO</th>
                                     <th>CORREO</th>
                                     <th>ETIQUETA</th>
+                                    <th>ACCIONES</th>
                                 </tr>
                             </thead>
                             <tbody id="llenar">
@@ -93,7 +93,7 @@
                 </div>
             </div>
     </main>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="JS/bootstrap.min.js"></script>
     <script src="Script.js"></script>
 </body>
